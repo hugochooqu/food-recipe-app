@@ -1,20 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { Recipe, useRecipes } from "@/hooks/useRecipes";
+import {  useRecipes } from "@/hooks/useRecipes";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { useDebounce } from "use-debounce";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import CurrencyConverter from "@/components/currencyConverter";
 import RecipeModal from "@/components/RecipeModal";
 import Card from "@/components/Card";
-import Lottie from "lottie-react";
 import loadingAnimation from "@/public/lottie/loading.json";
+import { Recipe } from "@/constants";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const page = () => {
   const [searchTerm, setSearchTerm] = useState("");

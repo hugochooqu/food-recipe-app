@@ -3,18 +3,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchMeals } from "@/app/api/fetchMeals";
 import { fetchCalories } from "@/app/api/fetchCalories";
+import { Recipe } from "@/constants";
 
-export interface Recipe {
-  id: number;
-  title: string;
-  image: string;
-  category: string;
-  instructions: string;
-  costInNaira: number;
-  calories: number | "N/A";
-  ingredients: string[];
-  ingredientCalories: { name: string; calories: number }[];
-}
+
 
 const fetchRecipes = async (query: string): Promise<Recipe[]> => {
   try {
