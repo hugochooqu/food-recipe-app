@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
+import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -36,7 +37,7 @@ function AlertDialogOverlay({
     <AlertDialogPrimitive.Overlay
       data-slot="alert-dialog-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-400 opacity-5",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-400 opacity-40",
         className
       )}
       {...props}
@@ -51,6 +52,12 @@ function AlertDialogContent({
   return (
     <AlertDialogPortal>
       <AlertDialogOverlay />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }} // Start from bottom
+        animate={{ opacity: 1, y: 0 }} // Move to visible position
+        exit={{ opacity: 0, y: 100 }} // Exit to bottom
+        transition={{ duration: 0.2, ease: "easeInOut" }} // Smooth transition
+      >
       <AlertDialogPrimitive.Content
         data-slot="alert-dialog-content"
         className={cn(
@@ -59,6 +66,7 @@ function AlertDialogContent({
         )}
         {...props}
       />
+      </motion.div>
     </AlertDialogPortal>
   )
 }

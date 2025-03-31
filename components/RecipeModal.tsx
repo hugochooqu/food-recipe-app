@@ -36,7 +36,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, onClose }) => {
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-        <AlertDialogContent className="space-y-4 max-w-[155%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none max-h-[90vh] scrollbar-hidden overflow-y-auto">
+        <AlertDialogContent className="space-y-4 max-w-[155%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none max-h-[90vh] scrollbar-hidden overflow-y-auto animate-in slide-in-from-bottom-10 duration-300">
       <button
         className="absolute top-2 right-2 text-gray-500"
         onClick={onClose}
