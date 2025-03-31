@@ -68,32 +68,7 @@ const page = () => {
           />
         )}
 
-        <div className="bg-white p-4 rounded-lg shadow-md w-[370px] text-black transition-transform transform hover:scale-105">
-          <Image
-            src="/bg.jpg"
-            alt="card"
-            width={370}
-            height={30}
-            className=" object-cover rounded-md"
-          />
-          <h2 className="text-lg font-semibold mt-2">Japanese gohan rice</h2>
-          <p className="text-gray-800">Calories: 20 Kcal</p>
-          <div className="flex flex-row ">
-            <p className="text-gray-800 flex flex-row gap-6">
-              Cost: #2000{" "}
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant="outline" className="bg-purple-400">
-                    Click to see USD
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-35 h-20 ">
-                  <CurrencyConverter costInNaira={Number("50000")} />
-                </PopoverContent>
-              </Popover>
-            </p>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

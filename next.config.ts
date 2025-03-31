@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
       
     ]
   },
+  experimental: {
+    serverComponentsExternalPackages: ['problematic-package'],
+  },
 };
 
 export default nextConfig;
