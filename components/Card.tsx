@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       key={id}
-      className="bg-white p-4 rounded-lg shadow-md w-[400px] text-black transition-transform transform hover:scale-105"
+      className="bg-white p-4 rounded-lg shadow-md max-sm:w-full md:w-[400px] text-black transition-transform transform hover:scale-105"
     >
       {image && (
         <div className="relative w-full h-48">
