@@ -3,21 +3,9 @@ import Image from "next/image";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 import { Button } from "./ui/button";
 import CurrencyConverter from "./currencyConverter";
+import { CardProps } from "@/constants";
 
-interface CardProps {
-  id: string | number;
-  title: string;
-  image?: string;
-  subtitle?: string;
-  details?: {
-    label: string;
-    value: string | number;
-  }[];
-  popoverContent?: React.ReactNode;
-  onClick?: () => void;
-  actionText?: string;
-  showAction?: boolean;
-}
+
 
 const Card: React.FC<CardProps> = ({
   id,

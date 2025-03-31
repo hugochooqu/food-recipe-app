@@ -3,32 +3,13 @@
 import React, { useState } from "react";
 import {
     AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
+
   } from "@/components/ui/alert-dialog"
+import { RecipeModalProps } from "@/constants";
   
 
-interface Recipe {
-  id: number;
-  title: string;
-  image: string;
-  category: string;
-  instructions: string;
-  costInNaira: number;
-  calories: number | "N/A";
-  ingredientCalories: { name: string; calories: number | "N/A" }[];
-}
 
-interface RecipeModalProps {
-  recipe: Recipe | null;
-  onClose: () => void;
-}
 
 const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, onClose }) => {
     const [isOpen, setIsOpen] = useState(true);

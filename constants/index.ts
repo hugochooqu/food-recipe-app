@@ -18,3 +18,32 @@ export const restaurantCovers = [
     ingredients: string[];
     ingredientCalories: { name: string; calories: number }[];
   }
+
+  
+ export interface RecipeModalProps {
+    recipe: Recipe | null;
+    onClose: () => void;
+  }
+
+  export interface Restaurant {
+    id: string,
+    name: string,
+    address?: string,
+    rating?: number,
+    image?: string,
+}
+
+export interface CardProps {
+  id: string | number;
+  title: string;
+  image?: string;
+  subtitle?: string;
+  details?: {
+    label: string;
+    value: string | number;
+  }[];
+  popoverContent?: React.ReactNode;
+  onClick?: () => void;
+  actionText?: string;
+  showAction?: boolean;
+}

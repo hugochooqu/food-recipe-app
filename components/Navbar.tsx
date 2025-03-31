@@ -17,7 +17,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Hamburger Menu for Mobile */}
+          {/* Menu Icon for Mobile */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}

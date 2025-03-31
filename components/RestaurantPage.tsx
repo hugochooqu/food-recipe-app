@@ -8,7 +8,8 @@ import loadingAnimation from "@/public/lottie/loading.json";
 import errorAnimation from "@/public/lottie/error.json";
 import Card from '@/components/Card';
 import { getRandomRestaurantCover } from '@/lib/utils';
-import { fetchNearbyRestuarants, Restaurant } from "@/app/api/fetchRestaurant";
+import { fetchNearbyRestuarants} from "@/app/api/fetchRestaurant";
+import { Restaurant } from "@/constants";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 

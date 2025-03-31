@@ -1,10 +1,5 @@
-export interface Restaurant {
-    id: string,
-    name: string,
-    address?: string,
-    rating?: number,
-    image?: string,
-}
+import { Restaurant } from "@/constants";
+
 export const fetchNearbyRestuarants = async (latitude : number, longitude : number):Promise<Restaurant[]>  => {
     const FOURSQUARE_API_KEY = process.env.NEXT_PUBLIC_FOURSQUARE_PLACES_API_KEY;
     const url = `https://api.foursquare.com/v3/places/search?query=restaurant&ll=${latitude},${longitude}&radius=5000&sort=RATING`;
