@@ -50,7 +50,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6 text-lg font-medium ">
+          <div className="hidden md:flex md:items-center md:space-x-6 text-lg font-medium ">
             <Link href="/restaurants" className="text-purple-600 hover:text-purple-800">
              Nearby Restaurants
             </Link>

@@ -24,7 +24,7 @@ const RestaurantsPage = () => {
         }
     }, [location])
 
-  return (<div className="container mx-auto p-6 min-h-screen">
+  return (<div className="max-w-7xl mx-auto p-6 min-h-screen">
   <h1 className="text-3xl font-bold text-center mb-6 text-purple-600">Nearby Restaurants</h1>
 
   {(geoLoading || loading) && (
@@ -42,7 +42,7 @@ const RestaurantsPage = () => {
   )}
 
   {!loading && !geoLoading && !error && !geoError && (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {restaurants.map((restaurant) => (
         <Card
         id={restaurant.id}
