@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchMeals } from "@/app/api/fetchMeals";
 import { fetchCalories } from "@/app/api/fetchCalories";
 
@@ -42,7 +42,9 @@ const fetchRecipes = async (query: string): Promise<Recipe[]> => {
 };
 
 export const useRecipes = (query: string) => {
-  return useQuery<Recipe[]>(["recipes", query], () => fetchRecipes(query), {
-    enabled: !!query,
+  return useQuery({
+    queryKey: ["recipes", query],
+    queryFn: () => fetchRecipes(query),
+    enabled: Boolean(query), 
   });
 };
