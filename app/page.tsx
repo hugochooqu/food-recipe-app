@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import {  useRecipes } from "@/hooks/useRecipes";
+import { useRecipes } from "@/hooks/useRecipes";
 import Image from "next/image";
 import { useDebounce } from "use-debounce";
 import RecipeModal from "@/components/RecipeModal";
@@ -34,11 +34,17 @@ const page = () => {
       {isLoading && (
         <div className="flex flex-col items-center justify-center min-h-[20vh]">
           <Lottie animationData={loadingAnimation} className="w-20 h-20" />
-          <p className="text-gray-500 text-lg mt-2">Fetching recipes...</p>
+          <p className="text-black text-lg mt-2">Fetching recipes...</p>
         </div>
       )}
       {isError && (
         <p className="text-center text-red-500">Error fetching recipes.</p>
+      )}
+
+      {searchTerm && recipes?.length === 0 && (
+        <p className="text-black text-xl text-center mt-8">
+          No recipes found. Try a different search.
+        </p>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto mt-3">
@@ -48,7 +54,7 @@ const page = () => {
             title={recipe.title}
             image={recipe.image}
             details={[
-              { label: "Calories", value: `${recipe.calories}Kcal` || "N/A" },
+              { label: "Calories", value: recipe.calories ? `${recipe.calories} Kcal` : "N/A" },
               { label: "Cost", value: recipe.costInNaira },
             ]}
             popoverContent={<p>Additional recipe information here</p>}
@@ -62,8 +68,6 @@ const page = () => {
             onClose={() => setSelectedRecipe(null)}
           />
         )}
-
-        
       </div>
     </div>
   );
