@@ -1,13 +1,16 @@
 'use client'
 
+import dynamic from "next/dynamic";
 import { useGeolocation } from '@/hooks/useGeolocation';
 import React, { useEffect, useState } from 'react'
 import { fetchNearbyRestuarants, Restaurant } from '../api/fetchRestaurant';
-import Lottie from "lottie-react";
 import loadingAnimation from "@/public/lottie/loading.json";
 import errorAnimation from "@/public/lottie/error.json";
 import Card from '@/components/Card';
 import { getRandomRestaurantCover } from '@/lib/utils';
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
 
 const RestaurantsPage = () => {
     const { location, loading: geoLoading, error: geoError } = useGeolocation();
